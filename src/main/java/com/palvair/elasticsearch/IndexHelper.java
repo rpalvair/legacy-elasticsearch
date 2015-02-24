@@ -30,6 +30,6 @@ public class IndexHelper {
         final Tweet tweet = new Tweet("widdy", new Date(), "This is a tweet message");
         final String json = mapper.writeValueAsString(tweet);
         log.info("json = " + json);
-        return client.prepareIndex(index, type).setSource().execute().actionGet();
+        return client.prepareIndex(index, type).setSource(json).execute().actionGet();
     }
 }
