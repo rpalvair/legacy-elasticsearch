@@ -32,6 +32,11 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 
+    <logger name="org.elasticsearch">
+        <level value="DEBUG"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
     <root>
         <priority value="DEBUG" />
     </root>

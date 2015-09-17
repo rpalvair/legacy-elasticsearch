@@ -22,6 +22,7 @@ import static org.junit.Assert.assertNotNull;
  */
 @Log4j
 @RunWith(JUnit4.class)
+@Ignore
 public class CrudHelperTest {
 
     private final IndexHelper indexHelper = new IndexHelper();
@@ -47,6 +48,7 @@ public class CrudHelperTest {
     }
 
     @Test
+    @Ignore
     public void testGetAll() throws JsonProcessingException {
         final SearchResponse getResponse = crudHelper.getAll("twitter", "tweet");
         final SearchHits hits = getResponse.getHits();
