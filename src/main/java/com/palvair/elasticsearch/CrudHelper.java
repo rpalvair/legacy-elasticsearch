@@ -1,14 +1,12 @@
 package com.palvair.elasticsearch;
 
 import lombok.extern.log4j.Log4j;
-import org.elasticsearch.action.deletebyquery.DeleteByQueryResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.node.Node;
 
-import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 /**
@@ -29,12 +27,12 @@ public class CrudHelper {
         return client.prepareGet(index, type, id).execute().actionGet();
     }
 
-    public DeleteByQueryResponse deleteByType(final String type) {
+    /*public DeleteByQueryResponse deleteByType(final String type) {
         return client.prepareDeleteByQuery()
                 .setQuery(termQuery("_type", type))
                 .execute()
                 .actionGet();
-    }
+    }*/
 
     public SearchResponse getAll(final String index, final String type) {
         return client.prepareSearch(index)

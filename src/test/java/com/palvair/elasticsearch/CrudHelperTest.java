@@ -2,7 +2,6 @@ package com.palvair.elasticsearch;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.log4j.Log4j;
-import org.elasticsearch.action.deletebyquery.DeleteByQueryResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchResponse;
@@ -34,7 +33,7 @@ public class CrudHelperTest {
     @BeforeClass
     public static void beforeClass() {
         final CrudHelper crudHelper = new CrudHelper();
-        final DeleteByQueryResponse getResponse = crudHelper.deleteByType(type);
+        //final DeleteByQueryResponse getResponse = crudHelper.deleteByType(type);
     }
 
     @Test
@@ -62,8 +61,8 @@ public class CrudHelperTest {
     @Ignore
     @Test
     public void testDeleteByType() throws JsonProcessingException {
-        final DeleteByQueryResponse getResponse = crudHelper.deleteByType("tweet_2");
-        getResponse.status();
+        //final DeleteByQueryResponse getResponse = crudHelper.deleteByType("tweet_2");
+        //getResponse.status();
 
     }
 }

@@ -33,7 +33,7 @@
     </logger>
 
     <logger name="org.elasticsearch">
-        <level value="DEBUG"/>
+        <level value="WARN"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
 

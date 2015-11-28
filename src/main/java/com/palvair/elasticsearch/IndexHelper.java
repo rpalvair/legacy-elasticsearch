@@ -9,11 +9,8 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.node.Node;
 
 import java.util.Date;
-
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 /**
  * @author rpalvair
@@ -27,8 +24,9 @@ public class IndexHelper {
     }
 
     public IndexResponse addToIndex(final String index, final String type) throws JsonProcessingException {
-        Settings seetings = ImmutableSettings.settingsBuilder().put("client.transport.ping_timeout", "30s").build();
-        Client client = new TransportClient(seetings).addTransportAddress(new InetSocketTransportAddress("localhost", 9300));
+        Settings settings = ImmutableSettings.settingsBuilder()
+                .put("cluster.name", "elasticsearch_widdy").build();
+        Client client =    new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("localhost", 9300));
 
         final ObjectMapper mapper = new ObjectMapper();
         final Tweet tweet = new Tweet("widdy", new Date(), "This is a tweet message");
